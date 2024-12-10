@@ -1,9 +1,12 @@
 /**
+ * Script for automating data imports from Google Sheets to Piano Measurements API.
+ * Repository: https://github.com/GuillaumeMeignan/pianoMeasurementsAPIwithGsheet
+ *
  * Main function to fetch data from Google Sheets, format it for Piano measurements,
  * and send it to the Piano Measurements API.
  */
 function pianoMeasurementsAPIwithGsheet(e) {
-  const sheet = e.source.getSheetByName('data');
+  const sheet = e ? e.source.getSheetByName('data') : SpreadsheetApp.getActiveSpreadsheet().getSheetByName('data');
 
   const apiUrl = 'https://analytics-api-eu.piano.io/import/measurements/v1';
 
